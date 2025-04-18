@@ -12,6 +12,7 @@ export class AppComponent {
   title = 'TODOapp';
   arrayDeTarefas: Tarefa[] = [];
   apiURL: string;
+  mostrarErro = false;
 
   constructor(private http: HttpClient) {
     this.apiURL = 'https://apitarefaslucas235182-production.up.railway.app';
@@ -19,6 +20,12 @@ export class AppComponent {
   }
 
   CREATE_tarefa(descricaoNovaTarefa: string) {
+    if (!descricaoNovaTarefa || descricaoNovaTarefa.trim() === '') {
+      this.mostrarErro = true;
+      return;
+    }
+
+    this.mostrarErro = false;
     var novaTarefa = new Tarefa(descricaoNovaTarefa, false);
     this.http
       .post<Tarefa>(`${this.apiURL}/api/post`, novaTarefa)
