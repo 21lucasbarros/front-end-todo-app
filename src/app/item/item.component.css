@@ -140,3 +140,9 @@
   background-color: #1d4ed8;
   transition: all 0.2s ease-in-out;
 }
+
+.erro-validacao {
+  text-align: center;
+  color: red;
+  font-family: var(--font-inter);
+}
