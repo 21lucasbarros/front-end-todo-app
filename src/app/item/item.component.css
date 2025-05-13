@@ -1,39 +1,68 @@
+.container {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  border: 1px solid #e5e7eb;
+}
+
+.container:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+
 .item {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  padding: 2% 1%;
-  border-radius: 8px;
+  align-items: center;
+  padding: 1rem 1.25rem;
 }
 
 .item-item {
   display: flex;
-  gap: 15px;
-  justify-content: center;
   align-items: center;
-}
-
-.item:hover {
-  background-color: rgba(0, 0, 0, 0.05);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-  transition: all 0.2s ease-in-out;
+  gap: 1rem;
 }
 
 .item-item input[type="checkbox"] {
-  width: 1.3rem;
-  height: 1.3rem;
-  accent-color: #1f2937;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 2px solid #6366f1;
+  border-radius: 6px;
   cursor: pointer;
+  appearance: none;
+  background-color: #ffffff;
+  margin: 0;
+  transition: all 0.2s ease;
+  position: relative;
 }
 
-.item-item input[type="checkbox"]:checked + label {
-  opacity: 0.7;
-  text-decoration: line-through;
+.item-item input[type="checkbox"]:checked {
+  background-color: #6366f1;
+  border-color: #6366f1;
+}
+
+.item-item input[type="checkbox"]:checked::after {
+  content: "✓";
+  font-size: 0.875rem;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .item-item label {
   font-family: var(--font-inter);
-  transition: opacity 0.2s ease, text-decoration 0.2s ease;
+  font-size: 1rem;
+  color: #1f2937;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.item-item input[type="checkbox"]:checked + label {
+  color: #9ca3af;
+  text-decoration: line-through;
 }
 
 .btn-wrapper {
@@ -46,103 +75,101 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
   border: none;
-  border-radius: 0.5rem;
-  color: white;
+  border-radius: 8px;
   cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-  transition: all 0.2s ease-in-out;
-
-  i {
-    font-size: 1.25rem;
-  }
+  transition: all 0.2s ease;
 }
 
 .btn {
-  background-color: #2563eb;
+  background-color: #6366f1;
+  color: white;
 }
 
 .btn:hover {
-  background-color: #1d4ed8;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  background-color: #4f46e5;
 }
 
 .btn-warn {
-  background-color: #dc2626;
+  background-color: #ef4444;
+  color: white;
 }
 
 .btn-warn:hover {
-  background-color: #b91c1c;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  background-color: #dc2626;
+}
+
+.btn i,
+.btn-warn i {
+  font-size: 1.25rem;
 }
 
 .edicao {
+  padding: 1rem 1.25rem;
+  border-top: 1px solid #e5e7eb;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  gap: 15px;
+  gap: 1rem;
+  align-items: center;
 }
 
 .sm-text-input {
-  width: 100%;
-  padding: 10px 12px;
-  border: 1.5px solid #d1d5db;
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 2px solid #e5e7eb;
   border-radius: 8px;
-  background: white;
+  font-size: 0.875rem;
   color: #1f2937;
-  font-size: 1rem;
-  box-sizing: border-box;
-  outline: none;
+  transition: all 0.3s ease;
 }
 
 .sm-text-input:focus {
-  border-color: #1f2937;
-}
-
-.sm-text-input::placeholder {
-  color: #9ca3af;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+  outline: none;
 }
 
 .btns {
   display: flex;
-  gap: 15px;
+  gap: 0.75rem;
 }
 
-.btns .btn-cancel {
+.btn-cancel,
+.btn-save {
+  padding: 0.75rem 1.25rem;
+  border: none;
+  border-radius: 8px;
+  font-family: var(--font-inter);
+  font-weight: 500;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-cancel {
+  background-color: #ef4444;
+  color: white;
+}
+
+.btn-cancel:hover {
   background-color: #dc2626;
-  border-radius: 8px;
-  color: #ffffff;
-  padding: 0.5rem 1rem;
-  border: none;
-  font-family: var(--font-inter);
-  cursor: pointer;
-  font-weight: bold;
 }
 
-.btns .btn-cancel:hover {
-  background-color: #b91c1c;
-  transition: all 0.2s ease-in-out;
+.btn-save {
+  background-color: #6366f1;
+  color: white;
 }
 
-.btns .btn-save {
-  background-color: #2563eb;
-  border-radius: 8px;
-  color: #ffffff;
-  padding: 0.5rem 1rem;
-  border: none;
-  font-family: var(--font-inter);
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.btns .btn-save:hover {
-  background-color: #1d4ed8;
-  transition: all 0.2s ease-in-out;
+.btn-save:hover {
+  background-color: #4f46e5;
 }
 
 .erro-validacao {
-  text-align: center;
-  color: red;
+  color: #dc2626;
   font-family: var(--font-inter);
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  text-align: center;
+  padding: 0 1.25rem 1rem;
 }
