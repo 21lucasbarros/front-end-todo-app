@@ -17,7 +17,9 @@ export class AppComponent {
   tokenJWT = '{ "token":""}';
   arrayDeTarefas: Tarefa[] = [];
   mostrarErro = false;
+  mostrarSenha = false;
   mostrarErroLogin = false;
+  mostrarErroCamposLogin = false;
 
   mostrarAdminPanel = false;
 
@@ -107,7 +109,15 @@ export class AppComponent {
 
   login(username: string, password: string) {
     this.mostrarErroLogin = false;
-    var credenciais = { nome: username, senha: password };
+    this.mostrarErroCamposLogin = false;
+
+    if (!username.trim() || !password.trim()) {
+      this.mostrarErroCamposLogin = true;
+      return;
+    }
+
+    const credenciais = { nome: username, senha: password };
+
     this.service.post(`${this.apiURL}/api/login`, credenciais).subscribe(
       (resultado: any) => {
         this.tokenJWT = JSON.stringify(resultado);

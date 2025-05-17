@@ -174,13 +174,29 @@ ul li {
   position: relative;
 }
 
-.icon-container {
+.user-container {
   position: absolute;
   left: 12px;
   top: 50%;
   transform: translateY(-50%);
   color: #6b7280;
   pointer-events: none;
+}
+
+.password-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6b7280;
+  pointer-events: none;
+  font-size: 1rem;
+  z-index: 1;
+}
+
+.password-wrapper input {
+  padding-left: 40px;
+  padding-right: 40px;
 }
 
 .lg-text-input {
@@ -195,4 +211,26 @@ ul li {
 .ri-user-line,
 .ri-lock-line {
   font-size: 1rem;
+}
+
+.password-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.password-wrapper input {
+  width: 100%;
+  padding-right: 40px; /* espaço pro botão */
+}
+
+.toggle-password {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #888;
+  font-size: 1.2rem;
 }

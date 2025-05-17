@@ -19,6 +19,7 @@ export class AdminUsuariosComponent implements OnInit {
   apiURL = 'https://apitarefaslucas235182-production.up.railway.app';
   usuarios: any[] = [];
   novoUsuario = { nome: '', senha: '', admin: false };
+  mostrarErroCriacao: boolean = false;
 
   constructor(private http: HttpClient) {}
 
@@ -40,6 +41,13 @@ export class AdminUsuariosComponent implements OnInit {
   }
 
   criarUsuario() {
+    if (!this.novoUsuario.nome.trim() || !this.novoUsuario.senha.trim()) {
+      this.mostrarErroCriacao = true;
+      return;
+    }
+
+    this.mostrarErroCriacao = false;
+
     this.http
       .post(`${this.apiURL}/api/users`, this.novoUsuario, {
         headers: this.getHeaders(),

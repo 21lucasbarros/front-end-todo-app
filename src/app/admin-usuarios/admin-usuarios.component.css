@@ -15,13 +15,13 @@
   background: #fdfdfd;
   border-radius: 12px;
   padding: 2rem;
-  max-width: 640px;
-  width: 90%;
-  max-height: 85vh;
-  overflow-y: auto;
+  width: 640px;
+  height: 600px; /* Tamanho fixo */
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
   position: relative;
   font-family: "Segoe UI", sans-serif;
+  display: flex;
+  flex-direction: column;
 }
 
 .modal-content h2 {
@@ -98,13 +98,25 @@ label {
   color: #333;
 }
 
-ul {
+hr {
+  margin: 1rem 0;
+  border: none;
+  border-top: 1px solid #ddd;
+}
+
+.user-list {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+.user-list ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-ul li {
+.user-list li {
   background-color: #fafafa;
   border: 1px solid #e3e3e3;
   border-radius: 8px;
@@ -118,8 +130,9 @@ ul li {
   margin-top: 0.75rem;
 }
 
-hr {
-  margin: 2rem 0;
-  border: none;
-  border-top: 1px solid #ddd;
+.erro-validacao {
+  margin-top: 8px;
+  color: red;
+  font-family: var(--font-inter);
+  text-align: center;
 }

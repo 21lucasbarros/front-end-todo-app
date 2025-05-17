@@ -26,32 +26,42 @@
       </button>
     </div>
 
+    <span class="erro-validacao" *ngIf="mostrarErroCriacao">
+      ERRO: Preencha nome e senha para criar o usuário.
+    </span>
+
     <hr />
 
-    <ul>
-      <li *ngFor="let u of usuarios">
-        <div class="input-group">
-          <input
-            [(ngModel)]="u.nome"
-            class="lg-text-input"
-            placeholder="Nome"
-          />
-          <input
-            [(ngModel)]="u.senha"
-            class="lg-text-input"
-            type="password"
-            placeholder="Senha"
-          />
-          <label> <input type="checkbox" [(ngModel)]="u.admin" /> Admin </label>
-        </div>
+    <div class="user-list">
+      <ul>
+        <li *ngFor="let u of usuarios">
+          <div class="input-group">
+            <input
+              [(ngModel)]="u.nome"
+              class="lg-text-input"
+              placeholder="Nome"
+            />
+            <input
+              [(ngModel)]="u.senha"
+              class="lg-text-input"
+              type="password"
+              placeholder="Senha"
+            />
+            <label>
+              <input type="checkbox" [(ngModel)]="u.admin" /> Admin
+            </label>
+          </div>
 
-        <div class="button-group">
-          <button class="btn-primary" (click)="salvarUsuario(u)">Salvar</button>
-          <button class="btn-primary" (click)="deletarUsuario(u._id)">
-            Excluir
-          </button>
-        </div>
-      </li>
-    </ul>
+          <div class="button-group">
+            <button class="btn-primary" (click)="salvarUsuario(u)">
+              Salvar
+            </button>
+            <button class="btn-primary" (click)="deletarUsuario(u._id)">
+              Excluir
+            </button>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>

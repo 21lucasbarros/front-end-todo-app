@@ -44,28 +44,42 @@
 
   <div *ngIf="!usuarioLogado" class="login">
     <div class="input-container">
-      <div class="icon-container">
+      <div class="user-container">
         <i class="ri-user-line"></i>
       </div>
       <input #username placeholder="Nome" class="lg-text-input with-icon" />
     </div>
 
     <div class="input-container">
-      <div class="icon-container">
-        <i class="ri-lock-line"></i>
+      <div class="password-wrapper">
+        <div class="password-icon">
+          <i class="ri-lock-line"></i>
+        </div>
+
+        <input
+          #password
+          [type]="mostrarSenha ? 'text' : 'password'"
+          placeholder="Senha"
+          class="lg-text-input with-icon"
+          (keyup.enter)="login(username.value, password.value)"
+        />
+
+        <button
+          type="button"
+          class="toggle-password"
+          (click)="mostrarSenha = !mostrarSenha"
+        >
+          <i [class]="mostrarSenha ? 'ri-eye-line' : 'ri-eye-off-line'"></i>
+        </button>
       </div>
-      <input
-        #password
-        placeholder="Senha"
-        class="lg-text-input with-icon"
-        type="password"
-        (keyup.enter)="login(username.value, password.value)"
-      />
     </div>
 
     <button class="btn-primary" (click)="login(username.value, password.value)">
       Login
     </button>
+    <span class="erro-validacao" *ngIf="mostrarErroCamposLogin">
+      ERRO: Preencha todos os campos.
+    </span>
     <span class="erro-validacao" *ngIf="mostrarErroLogin">
       ERRO: Usuário não encontrado ou senha incorreta.
     </span>
