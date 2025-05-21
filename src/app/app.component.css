@@ -1,19 +1,56 @@
 .main {
   max-width: 550px;
   width: 85%;
-  margin: 2rem auto;
+  margin: 1rem auto;
   padding: 1rem;
   background-color: #f7f7f7;
   border-radius: 8px;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2.5rem 5rem 0 rgba(0, 0, 0, 0.1);
-  max-height: calc(100vh - 6rem);
+  max-height: calc(100vh - 4rem);
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 480px) {
+  .main {
+    width: 90%;
+    margin: 0.5rem auto;
+    padding: 0.75rem;
+    max-height: calc(100vh - 2rem);
+  }
+  h1 {
+    font-size: 1.3rem;
+  }
+  .btn-primary {
+    padding: 0.75rem;
+    font-size: 1rem;
+  }
+  .lg-text-input {
+    padding: 10px 14px 10px 36px;
+  }
+  ul {
+    max-height: calc(100vh - 18rem);
+    gap: 10px;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 599px) {
+  .main {
+    width: 80%;
+  }
 }
 
 @media screen and (min-width: 600px) {
   .main {
     width: 70%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .main {
+    margin: 2rem auto;
+    max-height: calc(100vh - 6rem);
   }
 }
 
@@ -158,6 +195,26 @@ ul {
   max-height: calc(100vh - 20rem);
   flex-grow: 1;
   margin: 1rem 0;
+  padding-right: 8px;
+  box-sizing: border-box;
+}
+
+ul::-webkit-scrollbar {
+  width: 8px;
+}
+
+ul::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+ul::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+ul::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 ul li {
