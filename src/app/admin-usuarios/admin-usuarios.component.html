@@ -7,19 +7,26 @@
 
     <div class="input-group">
       <h3>Criar Novo Usuário</h3>
-      <input
-        [(ngModel)]="novoUsuario.nome"
-        placeholder="Nome"
-        class="lg-text-input"
-      />
-      <input
-        [(ngModel)]="novoUsuario.senha"
-        placeholder="Senha"
-        class="lg-text-input"
-        type="password"
-      />
-      <label>
-        <input type="checkbox" [(ngModel)]="novoUsuario.admin" /> Admin
+      <div class="input-with-icon">
+        <i class="ri-user-line"></i>
+        <input
+          [(ngModel)]="novoUsuario.nome"
+          placeholder="Nome"
+          class="lg-text-input"
+        />
+      </div>
+      <div class="input-with-icon">
+        <i class="ri-lock-line"></i>
+        <input
+          [(ngModel)]="novoUsuario.senha"
+          placeholder="Senha"
+          class="lg-text-input"
+          type="password"
+        />
+      </div>
+      <label class="checkbox-container">
+        <input type="checkbox" [(ngModel)]="novoUsuario.admin" />
+        Admin
       </label>
       <button class="btn-primary" (click)="criarUsuario()">
         Criar Usuário
@@ -36,18 +43,24 @@
       <ul>
         <li *ngFor="let u of usuarios">
           <div class="input-group">
-            <input
-              [(ngModel)]="u.nome"
-              class="lg-text-input"
-              placeholder="Nome"
-            />
-            <input
-              [(ngModel)]="u.senha"
-              class="lg-text-input"
-              type="password"
-              placeholder="Senha"
-            />
-            <label>
+            <div class="input-with-icon">
+              <i class="ri-user-line"></i>
+              <input
+                [(ngModel)]="u.nome"
+                class="lg-text-input"
+                placeholder="Nome"
+              />
+            </div>
+            <div class="input-with-icon">
+              <i class="ri-lock-line"></i>
+              <input
+                [(ngModel)]="u.senha"
+                class="lg-text-input"
+                type="password"
+                placeholder="Senha"
+              />
+            </div>
+            <label class="checkbox-container">
               <input type="checkbox" [(ngModel)]="u.admin" /> Admin
             </label>
           </div>

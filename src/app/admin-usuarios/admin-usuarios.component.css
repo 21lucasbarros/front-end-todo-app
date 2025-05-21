@@ -15,8 +15,8 @@
   background: #fdfdfd;
   border-radius: 12px;
   padding: 2rem;
-  width: 640px;
-  height: 600px; /* Tamanho fixo */
+  width: 550px;
+  height: 750px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
   position: relative;
   font-family: "Segoe UI", sans-serif;
@@ -68,7 +68,7 @@ label {
 
 .btn-primary {
   padding: 0.55rem 1.2rem;
-  background-color: #007bff;
+  background-color: #1f2937;
   color: #fff;
   border: none;
   border-radius: 6px;
@@ -79,7 +79,7 @@ label {
 }
 
 .btn-primary:hover {
-  background-color: #0056b3;
+  background-color: #374151;
 }
 
 .btn-close {
@@ -135,4 +135,79 @@ hr {
   color: red;
   font-family: var(--font-inter);
   text-align: center;
+}
+
+.input-with-icon {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 0.6rem 0.9rem;
+}
+
+.input-with-icon i {
+  font-size: 1.2rem;
+  color: #888;
+}
+
+.input-with-icon input {
+  border: none;
+  outline: none;
+  flex: 1;
+  font-size: 1rem;
+  background: transparent;
+}
+
+/* Container do checkbox + label */
+.checkbox-container {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  user-select: none;
+  font-size: 1rem;
+  color: #444;
+  font-weight: 600;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Esconde o checkbox nativo */
+.checkbox-container input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 22px;
+  height: 22px;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  background-color: #fff;
+  position: relative;
+  cursor: pointer;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Hover no checkbox */
+.checkbox-container input[type="checkbox"]:hover {
+  border-color: #1f2937;
+}
+
+/* Quando está checked */
+.checkbox-container input[type="checkbox"]:checked {
+  background-color: #1f2937;
+  border-color: #1f2937;
+}
+
+/* Marca de check personalizada */
+.checkbox-container input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 7px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2.5px 2.5px 0;
+  transform: rotate(45deg);
+  pointer-events: none;
 }

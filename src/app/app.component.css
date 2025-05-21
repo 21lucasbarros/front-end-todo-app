@@ -71,7 +71,7 @@
 
 h1 {
   color: black;
-  font-family: var(--font-montserrat);
+  font-family: var(--font-inter);
   font-size: 1.5rem;
   text-align: center;
 }
@@ -220,7 +220,7 @@ ul li {
 
 .password-wrapper input {
   width: 100%;
-  padding-right: 40px; /* espaço pro botão */
+  padding-right: 40px;
 }
 
 .toggle-password {
