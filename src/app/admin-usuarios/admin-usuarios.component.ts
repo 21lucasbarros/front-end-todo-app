@@ -45,9 +45,7 @@ export class AdminUsuariosComponent implements OnInit {
       this.mostrarErroCriacao = true;
       return;
     }
-
     this.mostrarErroCriacao = false;
-
     this.http
       .post(`${this.apiURL}/api/users`, this.novoUsuario, {
         headers: this.getHeaders(),
@@ -59,8 +57,15 @@ export class AdminUsuariosComponent implements OnInit {
   }
 
   salvarUsuario(usuario: any) {
+    const dadosParaAtualizar: any = {
+      nome: usuario.nome,
+      admin: usuario.admin,
+    };
+    if (usuario.senha && usuario.senha.trim() !== '') {
+      dadosParaAtualizar.senha = usuario.senha;
+    }
     this.http
-      .patch(`${this.apiURL}/api/users/${usuario._id}`, usuario, {
+      .patch(`${this.apiURL}/api/users/${usuario._id}`, dadosParaAtualizar, {
         headers: this.getHeaders(),
       })
       .subscribe(() => this.carregarUsuarios());

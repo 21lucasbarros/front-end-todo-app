@@ -55,9 +55,9 @@
               <i class="ri-lock-line"></i>
               <input
                 [(ngModel)]="u.senha"
+                [placeholder]="u.senha ? '' : 'Senha protegida'"
                 class="lg-text-input"
                 type="password"
-                placeholder="Senha"
               />
             </div>
             <label class="checkbox-container">
